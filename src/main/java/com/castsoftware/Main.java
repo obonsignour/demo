@@ -141,13 +141,12 @@ public class Main {
             // Retrieve users one by one using direct SQL
             for (long i = 1; i <= totalUsers; i++) {
                 String sql = "SELECT * FROM demo.users WHERE id = :userId";
-                Object[] userRow = (Object[]) session.createNativeQuery(sql)
+                User user = session.createNativeQuery(sql, User.class)
                         .setParameter("userId", i)
                         .uniqueResult();
                 
-                if (userRow != null) {
-                    logger.info("Retrieved user #{}: ID={}, FirstName={}, LastName={}, Email={}",
-                            i, userRow[0], userRow[1], userRow[2], userRow[3]);
+                if (user != null) {
+                    logger.info("Retrieved user #{}: {}", i, user);
                 }
             }
             
