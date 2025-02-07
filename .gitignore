@@ -1,0 +1,38 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# IDE files (IntelliJ IDEA)
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# IDE files (Eclipse)
+.settings/
+.classpath
+.project
+.metadata
+bin/
+tmp/
+
+# IDE files (VS Code)
+.vscode/
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Environment variables and local configuration
+set-env.bat
+set-env.sh
+local.properties
+
+# OS-specific files
+.DS_Store
+Thumbs.db
