@@ -1,36 +1,38 @@
 plugins {
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
     id 'java'
     id 'application'
 }
 
-group 'com.castsoftware'
-version '1.0-SNAPSHOT'
+group = 'com.castsoftware'
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.hibernate.orm:hibernate-core:6.4.1.Final'
     implementation 'org.postgresql:postgresql:42.7.1'
+    
+    // Logging
     implementation 'ch.qos.logback:logback-classic:1.4.14'
     
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.1'
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-sourceSets {
-    main {
-        resources {
-            srcDirs = ['src/main/resources']
-        }
-    }
+application {
+    mainClass = 'com.castsoftware.Main'
 }
 
 test {
     useJUnitPlatform()
 }
 
-application {
-    mainClass = 'com.castsoftware.Main'
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
